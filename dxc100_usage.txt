@@ -1,0 +1,54 @@
+||==================================================================||
+||   DXC100: DamExchange Client for 10x10 International Draughts    ||
+||==================================================================||
+
+Usage: 
+- Open a command line terminal at the folder of the application files.
+- Start the client by: python dxp100_run.py
+
+After the prompt ">>>" you can type instructions for use.
+
+Available instructions are:
+q:                        quit
+exit:                     quit
+h:                        short help with a list of these instructions
+setup:                    setup starting position
+setup <fen>:              setup position with given fen-string
+fen:                      show fen string
+legal:                    show legal moves
+clear:                    clear all log files
+pieceset:                 toggle between ASCII and Unicode pieceset
+
+m <move>:                 do move (format: 32-28, 16x27, etc)
+m:                        do the only move (if only one possible)
+
+connect <host> <port>:    try to make a connection to a server
+                          default localhost and port 27531
+chat <msg>:               send a chat message to the server
+gamereq <myColor>:        send game request to server with myColor W or B
+
+gameend <reason>:         send game end with reason
+                          0: unknown  1: I lose  2: draw  3: I win
+backreq <moveId> <color>: send request to move back
+                          not yet supported
+
+The notation of a move is the accepted standard for 10x10 boards.
+A move is given by the start and end fields of the move or capture.
+Examples:
+- 32-28, 19-23, 5-46, ... for moves of a piece or king
+- 28x19, 5x46, ...        for captures of a piece or king
+If a capture cannot be uniquely defined by the start and end fields,
+you had to record all fields like: m 26x17x28x39x30
+
+The application is tested with Linux Mint and MobyDam as server.
+It can connect to any other draughts server which support the DXP protocol.
+I am not sure but I am not surprised if it works for other platforms
+like macOS or Windows.
+If you have problems with displaying pieces, try switching to the ASCII pieceset.
+
+Two logfiles are maintained:
+- mydxp.log: stores the dxp messages exchanged between client and server.
+- mysys.log: stores general events during running the application.
+
+=============================================================================================
+
