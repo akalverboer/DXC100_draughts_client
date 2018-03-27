@@ -4,7 +4,7 @@
 
 Usage: 
 - Open a command line terminal at the folder of the application files.
-- Start the client by: python dxp100_run.py
+- Start the client by: python dxc100_run.py
 
 After the prompt ">>>" you can type instructions for use.
 
