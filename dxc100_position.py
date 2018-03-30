@@ -139,11 +139,13 @@ class Position:
           start = (i-1) * (nrows//2) + 1
           row = self.setup[start: start + (nrows//2)]
           numSpaces = 0 if numSpaces == 2 else 2   # alternate
-          spaces = ' ' * numSpaces                   # spaces before row of pieces
-          numbering = ' %2d - %2d ' %( start, start + nrows//2 - 1)
+          left_spaces = ' ' * numSpaces                   # spaces before row of pieces
+          right_spaces = ' ' * (2 - numSpaces)
+          left_edge = ' %2d ' % (start)
+	  right_edge = ' %2d ' % (start + nrows//2 - 1)
           pieces = '   '.join(piececode.get(p, p) for p in row)
           #print(numbering + '   ' + spaces + pieces)
-          sys.stdout.write(numbering + '   ' + spaces + pieces + "\n")
+          sys.stdout.write(left_edge + ' ' + left_spaces + pieces + ' ' + right_spaces + right_edge + "\n")
        sys.stdout.write("\n")
        sys.stdout.flush()
        return None
